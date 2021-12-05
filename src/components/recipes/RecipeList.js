@@ -37,7 +37,7 @@ const RecipeList = ({ recipe, ...rest }) => {
         color: 'primary',
       },
     },
-    onSubmit: async () => alert('The user dismissed this notification.'),
+    onSubmit: async () => alert('The admin deleted the recipe.'),
   });
 
   // const handleSelectAll = (event) => {
