@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import Recipe from './pages/Recipe';
 import Settings from './pages/Settings';
 import DashBoard from './pages/Dashboard';
+import AddRecipe from './components/recipes/AddRecipe';
 
 const routes = [
   {
@@ -18,6 +19,7 @@ const routes = [
       { path: 'recipes', element: <Recipe /> },
       { path: 'settings', element: <Settings /> },
       { path: 'dashboard', element: <DashBoard /> },
+      { path: 'addrecipe', element: <AddRecipe /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   },

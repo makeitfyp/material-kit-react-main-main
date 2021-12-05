@@ -9,6 +9,7 @@ import { useDialog } from 'react-mui-dialog';
 import {
   Avatar,
   Box,
+  Button,
   Card,
   Table,
   TableBody,
@@ -81,7 +82,7 @@ const RecipeList = ({ recipe, ...rest }) => {
   };
 
   const routeChange = () => {
-    const path = '/';
+    const path = '/app/addrecipe';
     history(path);
   };
 
@@ -151,10 +152,14 @@ const RecipeList = ({ recipe, ...rest }) => {
                     {recipes.ingredients}
                   </TableCell>
                   <TableCell>
-                    <Edit onClick={routeChange} />
+                    <Button>
+                      <Edit onClick={routeChange} />
+                    </Button>
                   </TableCell>
                   <TableCell>
-                    <Delete onClick={deleteClick} />
+                    <Button>
+                      <Delete onClick={deleteClick} />
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}

@@ -7,7 +7,7 @@ import recipe from '../__mocks__/recipe';
 const Recipe = () => (
   <>
     <Helmet>
-      <title>Recipe | Material Kit</title>
+      <title>Recipe | MakeIt</title>
     </Helmet>
     <Box
       sx={{

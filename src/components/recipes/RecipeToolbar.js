@@ -21,7 +21,7 @@ const RecipeListToolbar = (props) => (
         color="primary"
         variant="contained"
       >
-        Add recipe
+        <a href="../components/recipes/AddRecipe">Add Recipe</a>
       </Button>
     </Box>
     <Box sx={{ mt: 3 }}>
