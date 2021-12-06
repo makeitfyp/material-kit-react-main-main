@@ -7,8 +7,7 @@ import {
   Button,
   Container,
   TextField,
-  Typography,
-  CardActions
+  Typography
 } from '@material-ui/core';
 
 const AddUser = () => {
@@ -17,7 +16,7 @@ const AddUser = () => {
   return (
     <>
       <Helmet>
-        <title>AddRecipe | MakeIt</title>
+        <title>AddUser | MakeIt</title>
       </Helmet>
       <Box
         sx={{
@@ -32,14 +31,15 @@ const AddUser = () => {
           <Formik
             initialValues={{
               name: '',
-              ingredients: '',
+              email: '',
               phone: '',
-              steps: ''
+              password: ''
             }}
             validationSchema={Yup.object().shape({
               name: Yup.string().max(255).required('Name is required'),
-              ingredients: Yup.string().max(255).required('Ingredients are required'),
-              steps: Yup.string().max(255).required('Steps are required')
+              email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
+              phone: Yup.string().max(255).required('Phone # is required'),
+              password: Yup.string().max(255).required('Password is required')
             })}
             onSubmit={() => {
               navigate('/app/dashboard', { replace: true });
@@ -60,7 +60,7 @@ const AddUser = () => {
                     color="textPrimary"
                     variant="h1"
                   >
-                    New Recipe
+                    New User
                   </Typography>
                 </Box>
                 <TextField
@@ -77,42 +77,44 @@ const AddUser = () => {
                   variant="outlined"
                 />
                 <TextField
-                  error={Boolean(touched.ingredients && errors.ingredients)}
+                  error={Boolean(touched.email && errors.email)}
                   fullWidth
-                  multiline
-                  helperText={touched.ingredients && errors.ingredients}
-                  label="Ingredients"
+                  helperText={touched.email && errors.email}
+                  label="Email Address"
                   margin="normal"
-                  name="ingredients"
+                  name="email"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  type="ingredients"
-                  value={values.ingredients}
+                  type="email"
+                  value={values.email}
                   variant="outlined"
                 />
                 <TextField
-                  error={Boolean(touched.steps && errors.steps)}
+                  error={Boolean(touched.phone && errors.phone)}
                   fullWidth
-                  multiline
-                  helperText={touched.steps && errors.steps}
-                  label="Steps"
+                  helperText={touched.phone && errors.phone}
+                  label="Phone #"
                   margin="normal"
-                  name="steps"
+                  name="phone"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  type="steps"
-                  value={values.steps}
+                  type="phone"
+                  value={values.phone}
                   variant="outlined"
                 />
-                <CardActions>
-                  <Button
-                    color="primary"
-                    fullWidth
-                    variant="text"
-                  >
-                    Upload picture
-                  </Button>
-                </CardActions>
+                <TextField
+                  error={Boolean(touched.password && errors.password)}
+                  fullWidth
+                  helperText={touched.password && errors.password}
+                  label="Password"
+                  margin="normal"
+                  name="password"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  type="password"
+                  value={values.password}
+                  variant="outlined"
+                />
                 <Box sx={{ py: 2 }}>
                   <Button
                     color="primary"

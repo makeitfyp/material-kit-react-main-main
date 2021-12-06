@@ -13,7 +13,8 @@ import {
   TableHead,
   TablePagination,
   TableRow,
-  Typography
+  Typography,
+  Button
 } from '@material-ui/core';
 import getInitials from '../../utils/getInitials';
 
@@ -103,7 +104,9 @@ const CustomerListResults = ({ customers, ...rest }) => {
                     {customer.dateofbirth}
                   </TableCell>
                   <TableCell>
-                    <Delete onClick={deleteClick} />
+                    <Button>
+                      <Delete onClick={deleteClick} />
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}

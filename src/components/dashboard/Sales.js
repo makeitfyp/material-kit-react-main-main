@@ -24,7 +24,7 @@ const Sales = (props) => {
         borderRadius: 4,
         categoryPercentage: 0.5,
         data: [18, 5, 19, 27, 29, 19, 20],
-        label: 'This year',
+        label: 'This month',
         maxBarThickness: 10
       },
       {
@@ -34,7 +34,7 @@ const Sales = (props) => {
         borderRadius: 4,
         categoryPercentage: 0.5,
         data: [11, 20, 12, 29, 30, 25, 13],
-        label: 'Last year',
+        label: 'Last month',
         maxBarThickness: 10
       }
     ],
@@ -104,7 +104,7 @@ const Sales = (props) => {
             Last 7 days
           </Button>
         )}
-        title="Latest Sales"
+        title="Trending Recipes"
       />
       <Divider />
       <CardContent>
