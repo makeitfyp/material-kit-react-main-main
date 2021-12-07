@@ -9,6 +9,8 @@ import Settings from './pages/Settings';
 import DashBoard from './pages/Dashboard';
 import AddRecipe from './components/recipes/AddRecipe';
 import AddUser from './components/users/Adduser';
+import Register from './pages/Register';
+import Login from './pages/Login';
 
 const routes = [
   {
@@ -30,7 +32,9 @@ const routes = [
     element: <MainLayout />,
     children: [
       { path: '404', element: <NotFound /> },
-      { path: '/', element: <Navigate to="/app/dashboard" /> },
+      { path: 'register', element: <Register /> },
+      { path: 'login', element: <Login /> },
+      { path: '/', element: <Navigate to="/login" /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   AppBar,
@@ -10,12 +10,13 @@ import {
   Toolbar
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import InputIcon from '@material-ui/icons/Input';
+import LogoutIcon from '@mui/icons-material/Logout';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Logo from './Logo';
 
 const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
   const [notifications] = useState([]);
+  const navigate = useNavigate();
 
   return (
     <AppBar
@@ -37,12 +38,23 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <IconButton color="inherit" size="large">
-            <InputIcon />
+          <IconButton
+            color="inherit"
+            size="large"
+          >
+            <LogoutIcon
+              onClick={() => {
+                navigate('/login', { replace: true });
+              }}
+            />
           </IconButton>
         </Hidden>
         <Hidden lgUp>
-          <IconButton color="inherit" onClick={onMobileNavOpen} size="large">
+          <IconButton
+            color="inherit"
+            onClick={onMobileNavOpen}
+            size="large"
+          >
             <MenuIcon />
           </IconButton>
         </Hidden>
