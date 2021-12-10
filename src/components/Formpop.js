@@ -1,0 +1,126 @@
+import * as React from 'react';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import TextField from '@mui/material/TextField';
+import {
+    Button,
+    CardActions,
+    Paper
+  } from '@material-ui/core';
+import { useRef, useState } from 'react';
+
+export default function Formpopup({ children }) {
+  const [setImageURL] = useState(null);
+  const fileInputRef = useRef();
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const triggerUpload = () => {
+    fileInputRef.current.click();
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const uploadImage = (e) => {
+    const { files } = e.target;
+    if (files.length > 0) {
+        const url = URL.createObjectURL(files[0]);
+        setImageURL(url);
+    } else {
+        setImageURL(null);
+    }
+  };
+
+  return (
+    <div>
+      <Button style={{ color: 'red' }} onClick={handleClickOpen}>
+        <EditOutlinedIcon fontSize="small" />
+      </Button>
+      <Paper
+        elevation={0}
+        style={{ backgroundColor: 'RED' }}
+      >
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title" style={{ backgroundColor: '#f4f6f8' }}>
+            Form to
+            { children }
+            recipe
+          </DialogTitle>
+          <DialogContent>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Name"
+              type="name"
+              fullWidth
+              variant="standard"
+            />
+          </DialogContent>
+          <DialogContent>
+            <TextField
+              autoFocus
+              multiline
+              margin="dense"
+              id="name"
+              label="Ingredients"
+              type="name"
+              fullWidth
+              variant="standard"
+            />
+          </DialogContent>
+          <DialogContent>
+            <TextField
+              autoFocus
+              multiline
+              margin="dense"
+              id="name"
+              label="Steps"
+              type="name"
+              fullWidth
+              variant="standard"
+            />
+          </DialogContent>
+          <CardActions>
+            <input
+              type="file"
+              accept="image/*"
+              className="uploadInput"
+              onChange={uploadImage}
+              ref={fileInputRef}
+            />
+            <Button
+              color="primary"
+              onClick={triggerUpload}
+            >
+              Upload Image
+            </Button>
+          </CardActions>
+          <DialogActions>
+            <Button
+              onClick={handleClose}
+              color="warning"
+            >
+              No
+            </Button>
+            <Button
+              onClick={handleClose}
+              color="success"
+            >
+              Yes
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </Paper>
+    </div>
+  );
+}

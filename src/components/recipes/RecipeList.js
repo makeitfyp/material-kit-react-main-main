@@ -2,12 +2,10 @@ import * as React from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import {
   Avatar,
   Box,
-  Button,
   Card,
   Table,
   TableBody,
@@ -19,12 +17,13 @@ import {
 } from '@material-ui/core';
 import getInitials from '../../utils/getInitials';
 import CustomizedDialogs from '../DialogBox';
+import Formpopup from '../Formpop';
 
 const RecipeList = ({ recipe, ...rest }) => {
   // const [selectedrecipeIds, setSelectedrecipeIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
-  const history = useNavigate();
+//  const history = useNavigate();
 
   // const handleSelectAll = (event) => {
   //   let newSelectedrecipeIds;
@@ -66,10 +65,10 @@ const RecipeList = ({ recipe, ...rest }) => {
     setPage(newPage);
   };
 
-  const routeChange = () => {
-    const path = '/app/addrecipe';
-    history(path);
-  };
+//  const routeChange = () => {
+//    const path = '/app/addrecipe';
+//    history(path);
+//  };
 
   return (
     <Card {...rest}>
@@ -140,12 +139,9 @@ const RecipeList = ({ recipe, ...rest }) => {
                     {recipes.ingredients}
                   </TableCell>
                   <TableCell>
-                    <Button>
-                      <EditOutlinedIcon
-                        fontSize="small"
-                        onClick={routeChange}
-                      />
-                    </Button>
+                    <Formpopup>
+                      Edit
+                    </Formpopup>
                   </TableCell>
                   <TableCell>
                     <CustomizedDialogs>

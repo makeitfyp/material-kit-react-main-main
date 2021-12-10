@@ -42,7 +42,7 @@ const AddUser = () => {
               steps: Yup.string().max(255).required('Steps are required')
             })}
             onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
+              navigate('/app/recipes', { replace: true });
             }}
           >
             {({
