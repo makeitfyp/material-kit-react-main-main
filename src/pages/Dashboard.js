@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@material-ui/core';
-import Sales from '../components/dashboard/Sales';
-import TasksProgress from '../components/dashboard/TasksProgress';
+import TasksProgress from '../components/dashboard/ActiveUsers';
 import TrafficByDevice from '../components/dashboard/TrafficByDevice';
 
 const Dashboard = () => (
@@ -29,15 +28,6 @@ const Dashboard = () => (
             xs={12}
           >
             <TasksProgress />
-          </Grid>
-          <Grid
-            item
-            lg={8}
-            md={12}
-            xl={9}
-            xs={12}
-          >
-            <Sales />
           </Grid>
           <Grid
             item

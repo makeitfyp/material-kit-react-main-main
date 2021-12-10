@@ -12,27 +12,27 @@ import {
 
 const states = [
   {
-    value: 'alabama',
-    label: 'Alabama'
+    value: 'punjab',
+    label: 'Punjab'
   },
   {
-    value: 'new-york',
-    label: 'New York'
+    value: 'sindh',
+    label: 'Sindh'
   },
   {
-    value: 'san-francisco',
-    label: 'San Francisco'
+    value: 'kpk',
+    label: 'KPK'
   }
 ];
 
 const AccountProfileDetails = (props) => {
   const [values, setValues] = useState({
-    firstName: 'Katarina',
-    lastName: 'Smith',
+    firstName: 'Malik',
+    lastName: 'Salman',
     email: 'demo@devias.io',
     phone: '',
-    state: 'Alabama',
-    country: 'USA'
+    state: 'Punjab',
+    country: 'Pakistan'
   });
 
   const handleChange = (event) => {

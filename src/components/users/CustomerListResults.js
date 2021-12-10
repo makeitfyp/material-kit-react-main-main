@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { useDialog } from 'react-mui-dialog';
 import Delete from '@material-ui/icons/Delete';
 import {
   Avatar,
@@ -22,20 +21,6 @@ const CustomerListResults = ({ customers, ...rest }) => {
   const [selectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
-  const { openDialog } = useDialog();
-  const deleteClick = () => openDialog({
-    title: 'There is change in the Air!',
-    contentText: 'Here is what is new in version 2.0',
-    cancelButton: false,
-    submitButton: {
-      children: 'Dismiss',
-      props: {
-        variant: 'contained',
-        color: 'primary',
-      },
-    },
-    onSubmit: async () => alert('The admin deleted the user.'),
-  });
 
   const handleLimitChange = (event) => {
     setLimit(event.target.value);
@@ -50,7 +35,7 @@ const CustomerListResults = ({ customers, ...rest }) => {
       <PerfectScrollbar>
         <Box sx={{ minWidth: 1050 }}>
           <Table>
-            <TableHead>
+            <TableHead style={{ backgroundColor: 'orange', color: 'white' }}>
               <TableRow>
                 <TableCell>
                   Name
@@ -63,6 +48,9 @@ const CustomerListResults = ({ customers, ...rest }) => {
                 </TableCell>
                 <TableCell>
                   DOB
+                </TableCell>
+                <TableCell>
+                  Actions
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -105,7 +93,7 @@ const CustomerListResults = ({ customers, ...rest }) => {
                   </TableCell>
                   <TableCell>
                     <Button>
-                      <Delete onClick={deleteClick} />
+                      <Delete />
                     </Button>
                   </TableCell>
                 </TableRow>
