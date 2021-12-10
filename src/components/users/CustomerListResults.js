@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import Delete from '@material-ui/icons/Delete';
 import {
   Avatar,
   Box,
@@ -12,10 +11,10 @@ import {
   TableHead,
   TablePagination,
   TableRow,
-  Typography,
-  Button
+  Typography
 } from '@material-ui/core';
 import getInitials from '../../utils/getInitials';
+import CustomizedDialogs from '../DialogBox';
 
 const CustomerListResults = ({ customers, ...rest }) => {
   const [selectedCustomerIds] = useState([]);
@@ -92,9 +91,9 @@ const CustomerListResults = ({ customers, ...rest }) => {
                     {customer.dateofbirth}
                   </TableCell>
                   <TableCell>
-                    <Button>
-                      <Delete />
-                    </Button>
+                    <CustomizedDialogs>
+                      user
+                    </CustomizedDialogs>
                   </TableCell>
                 </TableRow>
               ))}

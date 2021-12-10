@@ -2,10 +2,8 @@ import * as React from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import Edit from '@material-ui/icons/Edit';
-import Delete from '@material-ui/icons/Delete';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import { useNavigate } from 'react-router-dom';
-import { useDialog } from 'react-mui-dialog';
 import {
   Avatar,
   Box,
@@ -20,26 +18,13 @@ import {
   Typography
 } from '@material-ui/core';
 import getInitials from '../../utils/getInitials';
+import CustomizedDialogs from '../DialogBox';
 
 const RecipeList = ({ recipe, ...rest }) => {
   // const [selectedrecipeIds, setSelectedrecipeIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
   const history = useNavigate();
-  const { openDialog } = useDialog();
-  const deleteClick = () => openDialog({
-    title: 'There is change in the Air!',
-    contentText: 'Here is what is new in version 2.0',
-    cancelButton: false,
-    submitButton: {
-      children: 'Dismiss',
-      props: {
-        variant: 'contained',
-        color: 'primary',
-      },
-    },
-    onSubmit: async () => alert('The admin deleted the recipe.'),
-  });
 
   // const handleSelectAll = (event) => {
   //   let newSelectedrecipeIds;
@@ -91,7 +76,7 @@ const RecipeList = ({ recipe, ...rest }) => {
       <PerfectScrollbar>
         <Box sx={{ minWidth: 1050 }}>
           <Table>
-            <TableHead>
+            <TableHead style={{ backgroundColor: 'orange', color: 'white' }}>
               <TableRow selectable={false}>
                 {/* <TableCell padding="checkbox">
                   <Checkbox
@@ -105,12 +90,15 @@ const RecipeList = ({ recipe, ...rest }) => {
                   />
                 </TableCell> */}
                 <TableCell>
-                  Title
+                  Image
                 </TableCell>
                 <TableCell>
                   Ingredients
                 </TableCell>
-
+                <TableCell>
+                  Actions
+                </TableCell>
+                <TableCell />
               </TableRow>
             </TableHead>
             <TableBody>
@@ -153,13 +141,16 @@ const RecipeList = ({ recipe, ...rest }) => {
                   </TableCell>
                   <TableCell>
                     <Button>
-                      <Edit onClick={routeChange} />
+                      <EditOutlinedIcon
+                        fontSize="small"
+                        onClick={routeChange}
+                      />
                     </Button>
                   </TableCell>
                   <TableCell>
-                    <Button>
-                      <Delete onClick={deleteClick} />
-                    </Button>
+                    <CustomizedDialogs>
+                      recipe
+                    </CustomizedDialogs>
                   </TableCell>
                 </TableRow>
               ))}
