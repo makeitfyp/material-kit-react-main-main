@@ -10,13 +10,12 @@ import {
   List,
   Typography
 } from '@material-ui/core';
-import {
-  Settings as SettingsIcon,
-  BarChart as BarChartIcon,
-  ShoppingBag as ShoppingBagIcon,
-  User as UserIcon,
-  Users as UsersIcon
-} from 'react-feather';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import FeedbackIcon from '@mui/icons-material/Feedback';
+import SettingsIcon from '@mui/icons-material/Settings';
+import PersonIcon from '@mui/icons-material/Person';
+import PeopleIcon from '@mui/icons-material/People';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import NavItem from './NavItem';
 
 const user = {
@@ -33,7 +32,7 @@ const items = [
       },
     {
     href: '/app/users',
-    icon: UsersIcon,
+    icon: PeopleIcon,
     title: 'Users'
   },
   {
@@ -43,8 +42,13 @@ const items = [
   },
   {
     href: '/app/profile',
-    icon: UserIcon,
+    icon: PersonIcon,
     title: 'Profile'
+  },
+  {
+    href: '/app/feedback',
+    icon: FeedbackIcon,
+    title: 'Feedback'
   },
   {
     href: '/app/settings',

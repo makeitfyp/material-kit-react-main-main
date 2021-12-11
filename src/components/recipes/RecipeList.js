@@ -16,49 +16,50 @@ import {
   Typography
 } from '@material-ui/core';
 import getInitials from '../../utils/getInitials';
-import CustomizedDialogs from '../DialogBox';
-import Formpopup from '../Formpop';
+import DotButton from '../dotbutton';
 
 const RecipeList = ({ recipe, ...rest }) => {
-  // const [selectedrecipeIds, setSelectedrecipeIds] = useState([]);
-  const [limit, setLimit] = useState(10);
+//  const [selectedrecipeIds, setSelectedrecipeIds] = useState([]);
+//  const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 //  const history = useNavigate();
 
-  // const handleSelectAll = (event) => {
-  //   let newSelectedrecipeIds;
+//   const handleSelectAll = (event) => {
+//     let newSelectedrecipeIds;
 
-  //   if (event.target.checked) {
-  //     newSelectedrecipeIds = recipe.map((recipes) => recipes.id);
-  //   } else {
-  //     newSelectedrecipeIds = [];
-  //   }
+//     if (event.target.checked) {
+//       newSelectedrecipeIds = recipe.map((recipes) => recipes.id);
+//     } else {
+//       newSelectedrecipeIds = [];
+//     }
 
-  //   setSelectedrecipeIds(newSelectedrecipeIds);
-  // };
+//     setSelectedrecipeIds(newSelectedrecipeIds);
+//   };
 
-  // const handleSelectOne = (event, id) => {
-  //   const selectedIndex = selectedrecipeIds.indexOf(id);
-  //   let newSelectedrecipeIds = [];
+//   const handleSelectOne = (event, id) => {
+//     const selectedIndex = selectedrecipeIds.indexOf(id);
+//     let newSelectedrecipeIds = [];
 
-  //   if (selectedIndex === -1) {
-  //     newSelectedrecipeIds = newSelectedrecipeIds.concat(selectedrecipeIds, id);
-  //   } else if (selectedIndex === 0) {
-  //     newSelectedrecipeIds = newSelectedrecipeIds.concat(selectedrecipeIds.slice(1));
-  //   } else if (selectedIndex === selectedrecipeIds.length - 1) {
-  //     newSelectedrecipeIds = newSelectedrecipeIds.concat(selectedrecipeIds.slice(0, -1));
-  //   } else if (selectedIndex > 0) {
-  //     newSelectedrecipeIds = newSelectedrecipeIds.concat(
-  //       selectedrecipeIds.slice(0, selectedIndex),
-  //       selectedrecipeIds.slice(selectedIndex + 1)
-  //     );
-  //   }
+//     if (selectedIndex === -1) {
+//       newSelectedrecipeIds = newSelectedrecipeIds.concat(selectedrecipeIds, id);
+//     } else if (selectedIndex === 0) {
+//       newSelectedrecipeIds = newSelectedrecipeIds.concat(selectedrecipeIds.slice(1));
+//     } else if (selectedIndex === selectedrecipeIds.length - 1) {
+//       newSelectedrecipeIds = newSelectedrecipeIds.concat(selectedrecipeIds.slice(0, -1));
+//     } else if (selectedIndex > 0) {
+//       newSelectedrecipeIds = newSelectedrecipeIds.concat(
+//         selectedrecipeIds.slice(0, selectedIndex),
+//         selectedrecipeIds.slice(selectedIndex + 1)
+//       );
+//     }
 
-  //   setSelectedrecipeIds(newSelectedrecipeIds);
-  // };
+//     setSelectedrecipeIds(newSelectedrecipeIds);
+//   };
 
   const handleLimitChange = (event) => {
-    setLimit(event.target.value);
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
   };
 
   const handlePageChange = (event, newPage) => {
@@ -94,14 +95,11 @@ const RecipeList = ({ recipe, ...rest }) => {
                 <TableCell>
                   Ingredients
                 </TableCell>
-                <TableCell>
-                  Actions
-                </TableCell>
                 <TableCell />
               </TableRow>
             </TableHead>
             <TableBody>
-              {recipe.slice(0, limit).map((recipes) => (
+              {recipe.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((recipes) => (
                 <TableRow
                   hover
                   key={recipes.id}
@@ -139,14 +137,7 @@ const RecipeList = ({ recipe, ...rest }) => {
                     {recipes.ingredients}
                   </TableCell>
                   <TableCell>
-                    <Formpopup>
-                      Edit
-                    </Formpopup>
-                  </TableCell>
-                  <TableCell>
-                    <CustomizedDialogs>
-                      recipe
-                    </CustomizedDialogs>
+                    <DotButton />
                   </TableCell>
                 </TableRow>
               ))}
@@ -155,13 +146,13 @@ const RecipeList = ({ recipe, ...rest }) => {
         </Box>
       </PerfectScrollbar>
       <TablePagination
+        rowsPerPageOptions={[5, 10, 25]}
         component="div"
         count={recipe.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
         onPageChange={handlePageChange}
         onRowsPerPageChange={handleLimitChange}
-        page={page}
-        rowsPerPage={limit}
-        rowsPerPageOptions={[5, 10, 25]}
       />
     </Card>
   );

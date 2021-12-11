@@ -7,7 +7,8 @@ export default [
     dateofbirth: '01-01-1980',
     email: 'ekaterina.tankova@devias.io',
     name: 'Ekaterina Tankova',
-    phone: '304-428-3097'
+    phone: '304-428-3097',
+    status: 'answered'
   },
   {
     id: uuid(),
@@ -15,7 +16,8 @@ export default [
     dateofbirth: '01-01-1980',
     email: 'cao.yu@devias.io',
     name: 'Cao Yu',
-    phone: '712-351-5711'
+    phone: '712-351-5711',
+    status: 'banned'
   },
   {
     id: uuid(),
@@ -23,7 +25,8 @@ export default [
     dateofbirth: '01-01-1980',
     email: 'alexa.richardson@devias.io',
     name: 'Alexa Richardson',
-    phone: '770-635-2682'
+    phone: '770-635-2682',
+    status: 'answered'
   },
   {
     id: uuid(),
@@ -31,7 +34,8 @@ export default [
     dateofbirth: '01-01-1980',
     email: 'anje.keizer@devias.io',
     name: 'Anje Keizer',
-    phone: '908-691-3242'
+    phone: '908-691-3242',
+    status: 'banned'
   },
   {
     id: uuid(),
@@ -39,7 +43,8 @@ export default [
     dateofbirth: '01-01-1980',
     email: 'clarke.gillebert@devias.io',
     name: 'Clarke Gillebert',
-    phone: '972-333-4106'
+    phone: '972-333-4106',
+    status: 'banned'
   },
   {
     id: uuid(),
@@ -47,7 +52,8 @@ export default [
     dateofbirth: '01-01-1980',
     email: 'adam.denisov@devias.io',
     name: 'Adam Denisov',
-    phone: '858-602-3409'
+    phone: '858-602-3409',
+    status: 'answered'
   },
   {
     id: uuid(),
@@ -55,7 +61,8 @@ export default [
     dateofbirth: '01-01-1980',
     email: 'ava.gregoraci@devias.io',
     name: 'Ava Gregoraci',
-    phone: '415-907-2647'
+    phone: '415-907-2647',
+    status: 'answered'
   },
   {
     id: uuid(),
@@ -63,7 +70,8 @@ export default [
     dateofbirth: '01-01-1980',
     email: 'emilee.simchenko@devias.io',
     name: 'Emilee Simchenko',
-    phone: '702-661-1654'
+    phone: '702-661-1654',
+    status: 'banned'
   },
   {
     id: uuid(),
@@ -71,6 +79,7 @@ export default [
     dateofbirth: '01-01-1980',
     email: 'kwak.seong.min@devias.io',
     name: 'Kwak Seong-Min',
-    phone: '313-812-8947'
+    phone: '313-812-8947',
+    status: 'banned'
   }
 ];

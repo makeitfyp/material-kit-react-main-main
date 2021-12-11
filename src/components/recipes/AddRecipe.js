@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
+import { useRef } from 'react';
 import {
   Box,
   Button,
@@ -13,6 +14,10 @@ import {
 
 const AddUser = () => {
   const navigate = useNavigate();
+  const fileInputRef = useRef();
+  const triggerUpload = () => {
+    fileInputRef.current.click();
+  };
 
   return (
     <>
@@ -109,6 +114,7 @@ const AddUser = () => {
                     color="primary"
                     fullWidth
                     variant="text"
+                    onClick={triggerUpload}
                   >
                     Upload picture
                   </Button>

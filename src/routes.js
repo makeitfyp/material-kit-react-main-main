@@ -11,6 +11,7 @@ import AddRecipe from './components/recipes/AddRecipe';
 import AddUser from './components/users/Adduser';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Feedback from './pages/Feedback';
 
 const routes = [
   {
@@ -24,6 +25,7 @@ const routes = [
       { path: 'dashboard', element: <DashBoard /> },
       { path: 'addrecipe', element: <AddRecipe /> },
       { path: 'adduser', element: <AddUser /> },
+      { path: 'feedback', element: <Feedback /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   },

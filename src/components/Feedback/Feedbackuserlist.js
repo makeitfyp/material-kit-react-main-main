@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import { sentenceCase } from 'change-case';
 import {
   Avatar,
   Box,
@@ -13,10 +14,11 @@ import {
   TableRow,
   Typography
 } from '@material-ui/core';
+import Threedoticon from './threedoticon';
+import Label from '../Label';
 import getInitials from '../../utils/getInitials';
-import Deletepopup from './deletepopup';
 
-const CustomerListResults = ({ customers, ...rest }) => {
+const FeedbackUserlist = ({ customers, ...rest }) => {
   const [selectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
@@ -34,7 +36,7 @@ const CustomerListResults = ({ customers, ...rest }) => {
       <PerfectScrollbar>
         <Box sx={{ minWidth: 1050 }}>
           <Table>
-            <TableHead style={{ backgroundColor: 'orange', color: 'white' }}>
+            <TableHead style={{ backgroundColor: '#ADD8E6', color: 'black' }}>
               <TableRow>
                 <TableCell>
                   Name
@@ -43,12 +45,11 @@ const CustomerListResults = ({ customers, ...rest }) => {
                   Email
                 </TableCell>
                 <TableCell>
-                  Phone
-                </TableCell>
-                <TableCell>
                   DOB
                 </TableCell>
-                <TableCell />
+                <TableCell>
+                  Actions
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -83,13 +84,15 @@ const CustomerListResults = ({ customers, ...rest }) => {
                     {customer.email}
                   </TableCell>
                   <TableCell>
-                    {customer.phone}
+                    <Label
+                      variant="ghost"
+                      color={(customer.status === 'banned' && 'error') || 'success'}
+                    >
+                      {sentenceCase(customer.status)}
+                    </Label>
                   </TableCell>
                   <TableCell>
-                    {customer.dateofbirth}
-                  </TableCell>
-                  <TableCell>
-                    <Deletepopup />
+                    <Threedoticon />
                   </TableCell>
                 </TableRow>
               ))}
@@ -110,8 +113,8 @@ const CustomerListResults = ({ customers, ...rest }) => {
   );
 };
 
-CustomerListResults.propTypes = {
+FeedbackUserlist.propTypes = {
   customers: PropTypes.array.isRequired
 };
 
-export default CustomerListResults;
+export default FeedbackUserlist;

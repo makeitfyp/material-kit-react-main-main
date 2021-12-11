@@ -1,10 +1,13 @@
 import * as React from 'react';
+// import { Icon } from '@iconify/react';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import TextField from '@mui/material/TextField';
+// import editFill from '@iconify/icons-eva/edit-fill';
+import { ListItemIcon } from '@mui/material';
 import {
     Button,
     CardActions,
@@ -12,7 +15,7 @@ import {
   } from '@material-ui/core';
 import { useRef, useState } from 'react';
 
-export default function Formpopup({ children }) {
+export default function Formpopup() {
   const [setImageURL] = useState(null);
   const fileInputRef = useRef();
   const [open, setOpen] = React.useState(false);
@@ -37,9 +40,9 @@ export default function Formpopup({ children }) {
 
   return (
     <div>
-      <Button style={{ color: 'red' }} onClick={handleClickOpen}>
-        <EditOutlinedIcon fontSize="small" />
-      </Button>
+      <ListItemIcon onClick={handleClickOpen}>
+        <EditOutlinedIcon width={24} height={24} />
+      </ListItemIcon>
       <Paper
         elevation={0}
         style={{ backgroundColor: 'RED' }}
@@ -51,9 +54,7 @@ export default function Formpopup({ children }) {
           aria-describedby="alert-dialog-description"
         >
           <DialogTitle id="alert-dialog-title" style={{ backgroundColor: '#f4f6f8' }}>
-            Form to
-            { children }
-            recipe
+            FORM
           </DialogTitle>
           <DialogContent>
             <TextField

@@ -6,9 +6,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import { ListItemIcon } from '@mui/material';
 
-export default function CustomizedDialogs({ children }) {
+export default function Deletepopup() {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -20,9 +19,9 @@ export default function CustomizedDialogs({ children }) {
 
   return (
     <div>
-      <ListItemIcon onClick={handleClickOpen}>
-        <DeleteOutlineIcon width={24} height={24} />
-      </ListItemIcon>
+      <Button onClick={handleClickOpen}>
+        <DeleteOutlineIcon width={24} height={24} style={{ color: 'red' }} />
+      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -34,9 +33,7 @@ export default function CustomizedDialogs({ children }) {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Do you want to delete the
-            { children }
-            ?
+            Do you want to delete the user ?
           </DialogContentText>
         </DialogContent>
         <DialogActions>

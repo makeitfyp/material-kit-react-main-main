@@ -12,7 +12,6 @@ import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
 
 const TasksProgress = (props) => (
   <Card
-    sx={{ height: '100%' }}
     {...props}
   >
     <CardContent>
@@ -25,13 +24,13 @@ const TasksProgress = (props) => (
           <Typography
             color="textSecondary"
             gutterBottom
-            variant="h6"
+            variant="overline"
           >
             ACTIVE USERS
           </Typography>
           <Typography
             color="textPrimary"
-            variant="h3"
+            variant="h2"
           >
             75.5%
           </Typography>
@@ -48,7 +47,9 @@ const TasksProgress = (props) => (
           </Avatar>
         </Grid>
       </Grid>
-      <Box sx={{ pt: 3 }}>
+      <Box
+        sx={{ pt: 3 }}
+      >
         <LinearProgress
           value={75.5}
           variant="determinate"

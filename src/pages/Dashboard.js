@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@material-ui/core';
 import TasksProgress from '../components/dashboard/ActiveUsers';
 import TrafficByDevice from '../components/dashboard/TrafficByDevice';
+import Totalusers from '../components/dashboard/Totalusers';
 
 const Dashboard = () => (
   <>
@@ -28,6 +29,15 @@ const Dashboard = () => (
             xs={12}
           >
             <TasksProgress />
+          </Grid>
+          <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+          >
+            <Totalusers />
           </Grid>
           <Grid
             item
