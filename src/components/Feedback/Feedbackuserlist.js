@@ -20,11 +20,12 @@ import getInitials from '../../utils/getInitials';
 
 const FeedbackUserlist = ({ customers, ...rest }) => {
   const [selectedCustomerIds] = useState([]);
-  const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const handleLimitChange = (event) => {
-    setLimit(event.target.value);
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
   };
 
   const handlePageChange = (event, newPage) => {
@@ -53,7 +54,7 @@ const FeedbackUserlist = ({ customers, ...rest }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {customers.slice(0, limit).map((customer) => (
+              {customers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((customer) => (
                 <TableRow
                   hover
                   key={customer.id}
@@ -106,7 +107,7 @@ const FeedbackUserlist = ({ customers, ...rest }) => {
         onPageChange={handlePageChange}
         onRowsPerPageChange={handleLimitChange}
         page={page}
-        rowsPerPage={limit}
+        rowsPerPage={rowsPerPage}
         rowsPerPageOptions={[5, 10, 25]}
       />
     </Card>
